@@ -5,4 +5,8 @@ import shop.clothing.enity.Account;
 import shop.clothing.enity.Category;
 
 public interface CategoryRepository extends JpaRepository<Category,String> {
+
+    Category findCategoryByName(String name);
+
+
 }

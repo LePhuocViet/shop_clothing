@@ -14,6 +14,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@Builder
 @Table(name = "product")
 public class Product {
     @Id
@@ -25,7 +26,7 @@ public class Product {
     private double price;
 
     private String description;
-
+    @Lob
     private byte[] img;
 
     @ManyToMany

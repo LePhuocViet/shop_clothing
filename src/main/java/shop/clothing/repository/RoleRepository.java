@@ -5,4 +5,6 @@ import shop.clothing.enity.Account;
 import shop.clothing.enity.Role;
 
 public interface RoleRepository extends JpaRepository<Role,String> {
+
+
 }
