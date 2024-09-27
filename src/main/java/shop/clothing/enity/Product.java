@@ -22,7 +22,7 @@ public class Product {
 
     private String name;
 
-    private String price;
+    private double price;
 
     private String description;
 
@@ -34,11 +34,11 @@ public class Product {
     @ManyToMany
     Set<Size> sizes;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "style_id")
     private Style style;
 

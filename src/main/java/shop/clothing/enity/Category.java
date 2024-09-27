@@ -4,6 +4,7 @@ package shop.clothing.enity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -20,6 +21,7 @@ public class Category {
 
     private String name;
 
-
+    @OneToMany(mappedBy = "category")
+    List<Product> products;
 
 }
