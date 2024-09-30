@@ -12,13 +12,14 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@Builder
 @Table(name = "cart")
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    private String quantity;
+    private int quantity;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")

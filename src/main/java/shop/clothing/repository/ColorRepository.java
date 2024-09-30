@@ -10,5 +10,5 @@ import java.util.List;
 public interface ColorRepository extends JpaRepository<Color,String> {
     Color findColorByName(String name);
 
-
+    boolean existsByName(String name);
 }

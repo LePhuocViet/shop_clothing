@@ -50,4 +50,8 @@ public interface ProductRepository extends JpaRepository<Product,String> {
     List<Size> findSizeByIdProduct(@Param("id") String id);
 
     boolean existsById(String id);
+
+    boolean existsByColors(Color color);
+
+    boolean existsBySizes(Size size);
 }

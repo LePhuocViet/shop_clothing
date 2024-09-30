@@ -5,4 +5,6 @@ import shop.clothing.enity.Account;
 import shop.clothing.enity.Customer;
 
 public interface CustomerRepository extends JpaRepository<Customer,String> {
+
+    Customer findCustomerByAccountId(String id);
 }

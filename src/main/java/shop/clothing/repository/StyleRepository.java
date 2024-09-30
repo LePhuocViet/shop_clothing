@@ -8,4 +8,6 @@ import shop.clothing.enity.Style;
 public interface StyleRepository extends JpaRepository<Style,String> {
 
     Style findStyleByName(String name);
+
+    boolean existsByName(String name);
 }
