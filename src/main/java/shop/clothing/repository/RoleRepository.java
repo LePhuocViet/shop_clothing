@@ -6,5 +6,5 @@ import shop.clothing.enity.Role;
 
 public interface RoleRepository extends JpaRepository<Role,String> {
 
-
+    Role findRoleByName(String name);
 }

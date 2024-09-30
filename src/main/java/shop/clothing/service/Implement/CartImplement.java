@@ -75,9 +75,10 @@ public class CartImplement implements CartService {
         Account account = accountRepository.findAccountByUsername(signedJWT.getJWTClaimsSet().getSubject());
         Customer customer = customerRepository.findCustomerByAccountId(account.getId());
         Cart cart = cartRepository.findCartById(cartUpdateRequest.getIdCart());
+        if (cart == null) throw new WebException(ErrorCode.CART_NOT_FOUND);
         if (!customer.getId().equals(cart.getCustomer().getId()))
             throw new WebException(ErrorCode.WRONG_CART_CUSTOMER);
-        if (cart == null) throw new WebException(ErrorCode.CART_NOT_FOUND);
+
         cartRepository.delete(cart);
         return true;
     }
@@ -88,7 +89,7 @@ public class CartImplement implements CartService {
         Account account = accountRepository.findAccountByUsername(signedJWT.getJWTClaimsSet().getSubject());
         Customer customer = customerRepository.findCustomerByAccountId(account.getId());
         List<CartResponse> cartResponses = cartRepository.findCartByCustomerId(customer.getId());
-        if (cartResponses == null) throw new WebException(ErrorCode.CART_NOT_FOUND);
+        if (cartResponses.isEmpty()) throw new WebException(ErrorCode.CART_NOT_FOUND);
         return cartResponses;
     }
 

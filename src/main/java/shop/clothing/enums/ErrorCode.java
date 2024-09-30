@@ -20,13 +20,19 @@ public enum ErrorCode {
     USERNAME_NOT_FOUND(400,"Username not found"),
     PASSWORD_NOT_RIGHT(400,"Password not right"),
     WRONG_CART_CUSTOMER(400,"Wrong cart for customer"),
+    USERNAME_IS_EXISTS(400,"Username is exists"),
+    PASSWORD_NOT_MATCH(400,"Password not match"),
+    EMAIL_IS_EXISTS(400,"Email is exists"),
+    ACCOUNT_NOT_FOUND(400,"Account not found"),
 
     //401 Unauthorized
     UNAUTHORIZED(400,"Unauthorized"),
     //403 Forbidden
     //404 Not Found
     PRODUCT_NOT_FOUND(404,"Product not found"),
-    CART_NOT_FOUND(404,"Cart not found")
+    CART_NOT_FOUND(404,"Cart not found"),
+    ORDER_NOT_FOUND(404,"Order not found")
+
     ;
 
 

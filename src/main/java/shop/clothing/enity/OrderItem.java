@@ -3,7 +3,7 @@ package shop.clothing.enity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Set;
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -11,17 +11,20 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@Builder
 @Table(name = "orderitem")
 public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
-
-    @OneToOne
+    private int quantity;
+    private double price;
+    @ManyToOne
     @JoinColumn(name = "order_id")
-    private OrderList orderList;
+    private Order order;
 
-    @ManyToMany
-    Set<Product> products;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
 
 }

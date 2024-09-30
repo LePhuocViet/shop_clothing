@@ -12,6 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@Builder
 @Table(name = "customer")
 public class Customer {
     @Id
@@ -35,4 +36,7 @@ public class Customer {
 
     @OneToMany(mappedBy = "customer")
     private List<Cart> carts;
+
+    @OneToMany(mappedBy = "customer")
+    private List<Order> orders;
 }
