@@ -1,5 +1,6 @@
 package shop.clothing.configuration;
 
+import com.nimbusds.jose.JOSEException;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,6 +16,7 @@ import shop.clothing.exception.WebException;
 import shop.clothing.service.AuthService;
 
 import javax.crypto.spec.SecretKeySpec;
+import java.text.ParseException;
 import java.util.Objects;
 
 @Component
@@ -29,9 +31,14 @@ public class CustomDecoder implements JwtDecoder {
 
     @Override
     public Jwt decode(String token) throws JwtException {
+        try {
+            var introspect = authService.Introspection(new IntrospectionRequest(token));
+            if (!introspect){
+                throw new WebException(ErrorCode.FORBIDDEN);
+            }
 
-        if (!authService.Introspection(new IntrospectionRequest(token))){
-            throw new WebException(ErrorCode.UNAUTHORIZED);
+        }catch (Exception e){
+            e.getMessage();
         }
 
 

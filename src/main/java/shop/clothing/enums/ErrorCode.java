@@ -23,6 +23,8 @@ public enum ErrorCode {
     //401 Unauthorized
     UNAUTHORIZED(400,"Unauthorized"),
     //403 Forbidden
+    FORBIDDEN(403,"Forbidden"),
+
     //404 Not Found
     PRODUCT_NOT_FOUND(404,"Product not found"),
     CART_NOT_FOUND(404,"Cart not found"),

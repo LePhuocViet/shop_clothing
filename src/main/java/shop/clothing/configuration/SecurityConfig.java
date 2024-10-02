@@ -51,7 +51,8 @@ public class SecurityConfig {
                             jwtConfigurer.decoder(customDecoder)
                                     .jwtAuthenticationConverter(jwtAuthenticationConverter())
                             )
-                    );
+                            .authenticationEntryPoint(new JwtAuthEntryPoint()));
+
             httpSecurity.csrf(httpSecurityCsrfConfigurer -> httpSecurityCsrfConfigurer.disable());
 
 
