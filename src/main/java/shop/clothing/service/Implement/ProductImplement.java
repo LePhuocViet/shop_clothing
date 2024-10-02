@@ -30,6 +30,8 @@ public class ProductImplement implements ProductService {
 
     CategoryRepository categoryRepository;
 
+    CartRepository cartRepository;
+
     @Override
     public List<ProductPageResponse> findAllProduct(ProductPageRequest productPageRequest) {
         return productRepository.findProductByProductPageRequest(
